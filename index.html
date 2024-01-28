@@ -15,8 +15,8 @@
         <section id="inventory-container">
             <div id="list-menu">
                 <ul>
-                    <li><a href="http://">Add Item</a></li>
-                    <li><a href="http://">Manage Item</a></li>
+                    <li><a href="#" id="add-item-link">Add Item</a></li>
+                    <li><a href="#" id="manage-item-link">Manage Item</a></li>
                 </ul>
             </div>
             <div id="inventory-div">
@@ -26,7 +26,9 @@
                         <div>
                             <input type="text" name="item-name" id="item-name" placeholder="Item Name">
                         </div>
-                        <div><input type="number" name="" id="" min="0" placeholder="Amount"></div>
+                        <div>
+                            <input type="number" name="item-amount" id="item-amount" min="0" placeholder="Amount">
+                        </div>
                         <div>
                             <select name="category" id="category">
                                 <option value="">Select Category</option>
@@ -55,6 +57,9 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
+                        <tbody id="table-body">
+
+                        </tbody>
                     </table>
                 </div>    
             </div>
