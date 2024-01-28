@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <title>Mini Inventory System</title>
+</head>
+<body>
+    <main id="main-body">
+        <h1>Inventory System</h1>
+        <section id="inventory-container">
+            <div id="list-menu">
+                <ul>
+                    <li><a href="http://">Add Item</a></li>
+                    <li><a href="http://">Manage Item</a></li>
+                </ul>
+            </div>
+            <div id="inventory-div">
+                <div id="add-item-page" >
+                    <h3>Add Item</h3>
+                    <form action="">
+                        <div>
+                            <input type="text" name="item-name" id="item-name" placeholder="Item Name">
+                        </div>
+                        <div><input type="number" name="" id="" min="0" placeholder="Amount"></div>
+                        <div>
+                            <select name="category" id="category">
+                                <option value="">Select Category</option>
+                                <option value="Laboratory">Laboratory</option>
+                                <option value="Reception">Reception</option>
+                                <option value="Emergency">Emergency</option>
+                                <option value="Paediatrics">Paediatrics</option>
+                            </select>
+                        </div>
+                        <div>
+                            <input type="text" name="color" id="color" placeholder="Color">
+                        </div>
+                        <button type="submit" id="submit-item">Submit</button>
+                    </form>
+                </div>
+                <div id="manage-item-page" class="hide">
+                    <h3>Manage Items</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Product ID</th>
+                                <th>Product Name</th>
+                                <th>Amount</th>
+                                <th>Creation Date</th>
+                                <th>Category</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>    
+            </div>
+        </section>   
+    </main>
+
+    <script src="./script.js"></script>
+</body>
+</html>
