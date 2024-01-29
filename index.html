@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/6c1ada6317.js" crossorigin="anonymous"></script>
     <title>Mini Inventory System</title>
 </head>
 <body>
@@ -26,12 +27,12 @@
                 </div>
                 <div id="add-item-page" >
                     <h3>Add Item</h3>
-                    <form action="">
+                    <form action="" id="item-form">
                         <div>
-                            <input type="text" name="item-name" id="item-name" placeholder="Item Name">
+                            <input type="text" name="item-name" id="item-name" placeholder="Item Name" required>
                         </div>
                         <div>
-                            <input type="number" name="item-amount" id="item-amount" min="0" placeholder="Amount">
+                            <input type="number" name="item-amount" id="item-amount" min="0" placeholder="Amount" required>
                         </div>
                         <div>
                             <select name="category" id="category">
@@ -43,7 +44,7 @@
                             </select>
                         </div>
                         <div>
-                            <input type="text" name="color" id="color" placeholder="Color">
+                            <input type="text" name="color" id="color" placeholder="Color" required>
                         </div>
                         <button type="submit" id="submit-item">Submit</button>
                     </form>
@@ -58,6 +59,7 @@
                                 <th>Amount</th>
                                 <th>Creation Date</th>
                                 <th>Category</th>
+                                <th>Color</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -67,7 +69,30 @@
                     </table>
                 </div>    
             </div>
-        </section>   
+        </section> 
+        <dialog>
+            <form action="" id="update-form">
+                <div>
+                    <input type="text" name="update-item-name" id="update-item-name" placeholder="Item Name" required>
+                </div>
+                <div>
+                    <input type="number" name="update-item-amount" id="update-item-amount" min="0" placeholder="Amount" required>
+                </div>
+                <div>
+                    <select name="update-category" id="update-category">
+                        <option value="">Select Category</option>
+                        <option value="Laboratory">Laboratory</option>
+                        <option value="Reception">Reception</option>
+                        <option value="Emergency">Emergency</option>
+                        <option value="Paediatrics">Paediatrics</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="text" name="update-color" id="update-color" placeholder="Color" required>
+                </div>
+                <button type="submit" id="update-submit-item">Update Item</button>
+            </form>
+        </dialog> 
     </main>
 
     <script src="./script.js"></script>
