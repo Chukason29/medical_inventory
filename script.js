@@ -13,6 +13,7 @@ const amountInput = document.getElementById("item-amount")
 const submitItem = document.getElementById("submit-item")
 const tableBody = document.getElementById("table-body")
 const allLinks = document.querySelectorAll("#inventory-div > div")
+const updateDialog = document.getElementById("update-dialog")
 const date = new Date()
 //Object constructor to create each item object
 function Items(productId, name, amount, category, color){
@@ -66,12 +67,11 @@ const showStocks = () =>{
                 <button id="delete" onclick = "deleteItem(this)"><i class="fa-solid fa-trash-can"></i></button>
                 <button id="add-stock" onclick = "addStock(this)"><i class="fa-solid fa-arrow-up"></i></button>
             </td>
-        </tr>
-    `
+        </tr> `
     })
 }
 const hideAllPages = () => {
-    let linkArray = Array.from(allLinks)
+    let linkArray = Array.from(allLinks)// converting a NodeList to a proper array
     linkArray.forEach(item => item.classList.add("hide"))
 }
 addItemLink.addEventListener("click", () =>{
@@ -96,12 +96,28 @@ itemForm.addEventListener("submit", (e) =>{
 })
 
 const editItem = (elementButton) => {
-    let itemId = elementButton.parentElement.id
+    //Checking if the item product id of the selected item is found
+    const itemIndex = itemArray.findIndex(item => item.productId === parseInt(elementButton.parentElement.id))
+
+    //if it is found, then assign it to the itrm property of currentItem
+    if (itemIndex != -1) {
+        currentItem.item = itemArray[itemIndex]
+    }   
     const updateItemForm = document.getElementById("update-item-form")
     const updateItemNameInput = document.getElementById("update-item-name")
     const updateCategoryInput = document.getElementById("update-category")
     const updateColorInput = document.getElementById("update-color")
-    const amountInput = document.getElementById("update-item-amount")
+    const updateAmountInput = document.getElementById("update-item-amount")
     const updateSubmitItem = document.getElementById("update-submit-item")
 
+    //Assigning values to update form fields
+    updateItemNameInput.value = currentItem.item.name;
+    updateCategoryInput.value = currentItem.item.category;
+    updateColorInput.value = currentItem.item.color;
+    updateAmountInput.value = currentItem.item.amount;
+    
+    
+
+
+    updateDialog.showModal()
 }
