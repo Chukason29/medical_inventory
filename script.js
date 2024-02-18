@@ -63,9 +63,9 @@ const showStocks = () =>{
             <td>${category}</td>
             <td>${color}</td>
             <td id="${productId}">
-                <button id="edit" onclick = "editItem(this)"><i class="fa-solid fa-pen-to-square"></i></button>
-                <button id="delete" onclick = "deleteItem(this)"><i class="fa-solid fa-trash-can"></i></button>
-                <button id="add-stock" onclick = "addStock(this)"><i class="fa-solid fa-arrow-up"></i></button>
+                <button id="edit" onclick = "editItemDialog(this)"><i class="fa-solid fa-pen-to-square"></i></button>
+                <button id="delete" onclick = "deleteItemDialog(this)"><i class="fa-solid fa-trash-can"></i></button>
+                <button id="add-stock" onclick = "addStockDialog(this)"><i class="fa-solid fa-arrow-up"></i></button>
             </td>
         </tr> `
     })
@@ -95,7 +95,7 @@ itemForm.addEventListener("submit", (e) =>{
     collectInput()
 })
 
-const editItem = (elementButton) => {
+const editItemDialog = (elementButton) => {
     //Checking if the item product id of the selected item is found
     const itemIndex = itemArray.findIndex(item => item.productId === parseInt(elementButton.parentElement.id))
 

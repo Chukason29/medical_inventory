@@ -109,17 +109,38 @@ table button{
     background-color: rgb(0, 134, 0);
 }
 #update-dialog{
-    width: 50%;
+    width: 40%;
     margin: auto;
     position:absolute;
     top: 0%;
     border-radius: 10px;
     border: none;
-    height: 60vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 40vh;
+    padding: 25px 10px;
 }
 #update-dialog::backdrop{
     background-color: rgba(120, 120, 120, .5);
+}
+#update-dialog h2{
+    text-align: center;
+}
+#update-form{
+    height: 70%;
+    width: 80%;
+    padding: 20px 40px;
+    margin: auto;
+}
+#update-form input, #update-form select{
+    width: 100%;
+    height: 35px;
+    border: .6px solid #999;
+    margin-top: 10px;
+    padding: 7px 11px;
+}
+#update-form button{
+    background-color: rgb(29, 79, 241);
+    color: #fff;
+    margin-top: 20px;
+    padding: 9px 20px;
+    border: none;
 }
