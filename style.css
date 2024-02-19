@@ -145,3 +145,11 @@ table button{
     border: none;
     cursor: pointer;
 }
+#change-discard{
+    width: 80%;
+    margin: auto;
+    margin-top: 100px;
+}
+#change-discard > button{
+    cursor: pointer;
+}

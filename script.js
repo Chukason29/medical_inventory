@@ -15,12 +15,16 @@ const tableBody = document.getElementById("table-body")
 const allLinks = document.querySelectorAll("#inventory-div > div")
 const updateDialog = document.getElementById("update-dialog")
 const updateItemForm = document.getElementById("update-item-form")
+const updateFormDiv = document.getElementById("update-form-div")
 const updateItemNameInput = document.getElementById("update-item-name")
 const updateCategoryInput = document.getElementById("update-category")
 const updateColorInput = document.getElementById("update-color")
 const updateAmountInput = document.getElementById("update-item-amount")
 const updateSubmitItem = document.getElementById("update-submit-item")
 const updateCancelItem = document.getElementById("update-cancel-item");
+const changeDiscard = document.getElementById("change-discard");
+const discardYes = document.getElementById("discard-yes")
+const discardNo = document.getElementById("discard-no")
 const date = new Date()
 //Object constructor to create each item object
 function Items(productId, name, amount, category, color){
@@ -91,6 +95,8 @@ const editItemDialog = (elementButton) => {
     updateCategoryInput.value = currentItem.item.category;
     updateColorInput.value = currentItem.item.color;
     updateAmountInput.value = currentItem.item.amount;
+    updateFormDiv.classList.remove("hide");
+    changeDiscard.classList.add("hide");
     updateDialog.showModal()
 }
 const hideAllPages = () => {
@@ -126,14 +132,20 @@ updateCancelItem.addEventListener("click", () =>{
     updateColorInput.value != currentItem.item.color ||
     updateAmountInput.value != currentItem.item.amount)
     {
-        updateDialog.innerHTML = `
-            <div class="change-discard">
-                <p>Are you sure you wnat to discard Changes</p>
-                <button>Yes</button>
-                <button>No</button>
-            </div>
-        `
-    }else{
+        updateFormDiv.classList.add("hide");
+        changeDiscard.classList.remove("hide");
 
+    }else{
+        updateDialog.close()
     }
+})
+
+// When discarding changes for Yes
+discardYes.addEventListener("click", () => {
+    updateDialog.close();
+})
+
+discardNo.addEventListener("click", () => {
+    updateFormDiv.classList.remove("hide");
+    changeDiscard.classList.add("hide");
 })

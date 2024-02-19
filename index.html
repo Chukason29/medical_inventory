@@ -71,32 +71,39 @@
             </div>
         </section>
         <dialog id="update-dialog">
-            <h2>Update Item</h2>
-            <form action="" id="update-form">
-                <div>
-                    <input type="text" name="update-item-name" id="update-item-name" placeholder="Item Name" required>
-                </div>
-                <div>
-                    <input type="number" name="update-item-amount" id="update-item-amount" min="0" placeholder="Amount" required>
-                </div>
-                <div>
-                    <select name="update-category" id="update-category">
-                        <option value="">Select Category</option>
-                        <option value="Laboratory">Laboratory</option>
-                        <option value="Reception">Reception</option>
-                        <option value="Emergency">Emergency</option>
-                        <option value="Paediatrics">Paediatrics</option>
-                    </select>
-                </div>
-                <div>
-                    <input type="text" name="update-color" id="update-color" placeholder="Color" required>
-                </div>
-                <div>
-                    <button type="button" id="update-cancel-item">Cancel</button>
-                    <button type="submit" id="update-submit-item">Update Item</button>
-                </div>
-                
-            </form>
+            <div id="update-form-div">
+                <h2>Update Item</h2>
+                <form action="" id="update-form">
+                    <div>
+                        <input type="text" name="update-item-name" id="update-item-name" placeholder="Item Name" required>
+                    </div>
+                    <div>
+                        <input type="number" name="update-item-amount" id="update-item-amount" min="0" placeholder="Amount" required>
+                    </div>
+                    <div>
+                        <select name="update-category" id="update-category">
+                            <option value="">Select Category</option>
+                            <option value="Laboratory">Laboratory</option>
+                            <option value="Reception">Reception</option>
+                            <option value="Emergency">Emergency</option>
+                            <option value="Paediatrics">Paediatrics</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input type="text" name="update-color" id="update-color" placeholder="Color" required>
+                    </div>
+                    <div>
+                        <button type="button" id="update-cancel-item">Cancel</button>
+                        <button type="submit" id="update-submit-item">Update Item</button>
+                    </div>
+                    
+                </form>
+            </div>
+            <div id="change-discard" class="hide">
+                <p>Are you sure you want to discard Changes</p>
+                <button id="discard-yes">Yes</button>
+                <button id="discard-no">No</button>
+            </div>
         </dialog> 
     </main>
 
