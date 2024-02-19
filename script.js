@@ -14,6 +14,13 @@ const submitItem = document.getElementById("submit-item")
 const tableBody = document.getElementById("table-body")
 const allLinks = document.querySelectorAll("#inventory-div > div")
 const updateDialog = document.getElementById("update-dialog")
+const updateItemForm = document.getElementById("update-item-form")
+const updateItemNameInput = document.getElementById("update-item-name")
+const updateCategoryInput = document.getElementById("update-category")
+const updateColorInput = document.getElementById("update-color")
+const updateAmountInput = document.getElementById("update-item-amount")
+const updateSubmitItem = document.getElementById("update-submit-item")
+const updateCancelItem = document.getElementById("update-cancel-item");
 const date = new Date()
 //Object constructor to create each item object
 function Items(productId, name, amount, category, color){
@@ -70,6 +77,22 @@ const showStocks = () =>{
         </tr> `
     })
 }
+const editItemDialog = (elementButton) => {
+    //Checking if the item product id of the selected item is found
+    const itemIndex = itemArray.findIndex(item => item.productId === parseInt(elementButton.parentElement.id))
+
+    //if it is found, then assign it to the itrm property of currentItem
+    if (itemIndex != -1) {
+        currentItem.item = itemArray[itemIndex]
+    }   
+
+    //Assigning values to update form fields
+    updateItemNameInput.value = currentItem.item.name;
+    updateCategoryInput.value = currentItem.item.category;
+    updateColorInput.value = currentItem.item.color;
+    updateAmountInput.value = currentItem.item.amount;
+    updateDialog.showModal()
+}
 const hideAllPages = () => {
     let linkArray = Array.from(allLinks)// converting a NodeList to a proper array
     linkArray.forEach(item => item.classList.add("hide"))
@@ -95,29 +118,22 @@ itemForm.addEventListener("submit", (e) =>{
     collectInput()
 })
 
-const editItemDialog = (elementButton) => {
-    //Checking if the item product id of the selected item is found
-    const itemIndex = itemArray.findIndex(item => item.productId === parseInt(elementButton.parentElement.id))
+//Cancelling an edit
 
-    //if it is found, then assign it to the itrm property of currentItem
-    if (itemIndex != -1) {
-        currentItem.item = itemArray[itemIndex]
-    }   
-    const updateItemForm = document.getElementById("update-item-form")
-    const updateItemNameInput = document.getElementById("update-item-name")
-    const updateCategoryInput = document.getElementById("update-category")
-    const updateColorInput = document.getElementById("update-color")
-    const updateAmountInput = document.getElementById("update-item-amount")
-    const updateSubmitItem = document.getElementById("update-submit-item")
+updateCancelItem.addEventListener("click", () =>{
+    if(updateItemNameInput.value != currentItem.item.name ||
+    updateCategoryInput.value != currentItem.item.category ||
+    updateColorInput.value != currentItem.item.color ||
+    updateAmountInput.value != currentItem.item.amount)
+    {
+        updateDialog.innerHTML = `
+            <div class="change-discard">
+                <p>Are you sure you wnat to discard Changes</p>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        `
+    }else{
 
-    //Assigning values to update form fields
-    updateItemNameInput.value = currentItem.item.name;
-    updateCategoryInput.value = currentItem.item.category;
-    updateColorInput.value = currentItem.item.color;
-    updateAmountInput.value = currentItem.item.amount;
-    
-    
-
-
-    updateDialog.showModal()
-}
+    }
+})
